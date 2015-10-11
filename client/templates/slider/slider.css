@@ -1,0 +1,20 @@
+.carousel {
+    /*margin-bottom: 60px;*/
+    border: #000000 solid 1px;
+}
+/* Since positioning the image, we need to help out the caption */
+ .carousel-caption {
+    z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .carousel-caption p {
+        margin-bottom: 20px;
+        font-size: 21px;
+        line-height: 1.4;
+    }
+}
+
+.carousel-holder {
+    margin-top:6em;
+}

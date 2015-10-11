@@ -1,0 +1,108 @@
+<template name="site_list">
+	<div class="col-md-12">
+		<section class="list_view">
+		<ul>
+			<h3>Filter By:</h3>
+
+			<!-- Single button -->
+  <!--
+			<div class="btn-group location">
+  			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    		Location 
+    		<span class="caret"></span>
+  			</button>
+  			<ul class="dropdown-menu">
+    			<li><a class="N" href="#">North</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="E" href="#">East</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="S" href="#">South</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="W" href="#">West</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="all" href="#">All</a></li>
+  			</ul>
+			</div>
+		--> 
+
+			<!-- Single button -->
+
+			<div class="btn-group category">
+  			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    		Category 
+    		<span class="caret"></span>
+  			</button>
+  			<ul class="dropdown-menu">
+    			<li><a class="E" href="#">Earth History</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="F" href="#">Fossils</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="H" href="#">Historic</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="N" href="#">Nature</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="R" href="#">Rocks and Minerals</a></li>
+    			 <li role="separator" class="divider"></li>
+    			<li><a class="all" href="#">All</a></li>
+  			</ul>
+			</div>
+
+			<div class="btn-group topsites">
+  			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    		Top Sites 
+    		<span class="caret"></span>
+  			</button>
+  			<ul class="dropdown-menu">
+    			<li><a class="yes" href="#">Yes</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="no" href="#">No</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="all" href="#">All</a></li>
+  			</ul>
+			</div>
+
+	
+			<!-- Single button -->
+	<!--		<div class="btn-group sview">
+  			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    		StreetView
+    		<span class="caret"></span>
+  			</button>
+  			<ul class="dropdown-menu">
+    			<li><a class="yes" href="#">Yes</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="no" href="#">No</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="all" href="#">All</a></li>
+  			</ul>
+			</div>
+-->
+			<button type="button" class="btn btn-primary reset">Reset</button>
+
+		</ul>
+
+		
+      	{{#each sites}}
+      	<a href="/{{siteID}}">
+      	
+		<div class="panel panel-default">
+  		<div class="panel-heading"><span>{{siteID}} </span>{{SiteName}}</div>
+  			<div class="panel-body">
+  				{{#if SubTitle}}
+    			{{SubTitle}}
+    			{{else}}
+    		<div class="desc">
+    	
+    		{{{Desc}}}
+    		</div>
+    		{{/if}}
+  			</div>
+		</div>
+      	</a>	
+      	{{/each}}
+
+
+
+		</section>
+	</div>
+</template>

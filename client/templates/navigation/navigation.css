@@ -1,0 +1,12 @@
+nav.navbar {
+	margin-bottom:0;
+}
+
+.navbar-fixed-top {
+	position:absolute;
+}
+
+.list-group {
+	position: absolute;
+    z-index: 999;
+}
