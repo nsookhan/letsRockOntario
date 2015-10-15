@@ -37,9 +37,8 @@ Template.map.onCreated(function() {
     console.log('Main Map ready');
 
 
-
     // Adds a InfoWindow
-    Sites.find().forEach(function(info){
+    Sites.find({ SubTitle: {$ne: "UTSC Rock Walk"}}).forEach(function(info){
 
       var id = info.siteID;
 
@@ -54,28 +53,52 @@ Template.map.onCreated(function() {
       var latlng = new google.maps.LatLng(info.Lat,info.Lon);
 
       if(info.Categ == '1') {
-        stkClr = "#3EF400";
+        var image = {
+            url:"/assets/markers/fr.png",
+            scaledSize: new google.maps.Size(28, 45),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(14, 45)
+          };        
       } else if(info.Categ == '2') {
-        stkClr = "#7E3874";
+          var image = {
+            url:"/assets/markers/br.png",
+            scaledSize: new google.maps.Size(28, 45),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(14, 45)
+          };        
       } else if(info.Categ == '3') {
-        stkClr = "#F40000";
+        var image = {
+            url:"/assets/markers/er.png",
+            scaledSize: new google.maps.Size(28, 45),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(14, 45)
+          };        
       } else if (info.Categ == '4') {
-        stkClr = "#214B1F";
+        var image = {
+            url:"/assets/markers/hr.png",
+            scaledSize: new google.maps.Size(28, 45),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(14, 45)
+          };        
       } else if(info.Categ == '5') {
-        stkClr = "#214B1F";
+        var image = {
+            url:"/assets/markers/dr.png",
+            scaledSize: new google.maps.Size(28, 45),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(14, 45)
+          };        
       } else if(info.Categ == '6') {
-        stkClr = "#0D00F4";
+        var image = {
+            url:"/assets/markers/utsc2.png",
+            scaledSize: new google.maps.Size(28, 45),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(14, 45)
+          };        
       }; 
 
       var marker = new google.maps.Marker({
                     position: latlng,
-                     icon: {
-                      path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-                      scale: 3.2,
-                      fillOpacity: 1,
-                      fillColor: stkClr,
-                      strokeWeight: 1,
-                    },
+                    icon: image,
                     map: map.instance
                     });
 
@@ -100,3 +123,34 @@ Template.map.onCreated(function() {
 
   });
 });
+
+
+
+/*
+      if(info.Categ == '1') {
+        stkClr = "#94DC6D";
+      } else if(info.Categ == '2') {
+        stkClr = "#DCD26D";
+      } else if(info.Categ == '3') {
+        stkClr = "#DC6D6D";
+      } else if (info.Categ == '4') {
+        stkClr = "#72DC6D";
+      } else if(info.Categ == '5') {
+        stkClr = "#BDCBD1";
+      } else if(info.Categ == '6') {
+        stkClr = "#96C6E1";
+      }; 
+
+      var marker = new google.maps.Marker({
+                    position: latlng,
+                     icon: {
+                      path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+                      scale: 3.2,
+                      fillOpacity: 1,
+                      fillColor: stkClr,
+                      strokeWeight: 1,
+                    },
+                    map: map.instance
+                    });
+
+*/

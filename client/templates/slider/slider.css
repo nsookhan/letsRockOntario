@@ -1,6 +1,5 @@
 .carousel {
     /*margin-bottom: 60px;*/
-    border: #000000 solid 1px;
 }
 /* Since positioning the image, we need to help out the caption */
  .carousel-caption {
@@ -16,5 +15,19 @@
 }
 
 .carousel-holder {
-    margin-top:6em;
+    margin-top:2em;
+}
+
+
+
+.item:before
+{
+    display:block;
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    -moz-box-shadow:inset 0px 0px 1px 1px rgba(255,255,255,1);
+    -webkit-box-shadow:inset 0px 0px 1px 1px rgba(255,255,255,1);
+    box-shadow:inset 0px 0px 1px 1px rgba(255,255,255,1);
 }

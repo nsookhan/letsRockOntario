@@ -10,3 +10,7 @@
 
 }
 
+.scroll {
+	overflow-y:auto;
+	height:270px;
+}
