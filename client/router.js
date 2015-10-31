@@ -58,13 +58,16 @@ Router.route('/:_site',function(){
 
 
 // Dynamic Router for each definition
-Router.route('/def/:_definition',function(){
 
+Router.route('/def/:_definition',function(){
+console.log(this.params_definition);
 	this.render('def_view',{
 		data: function(){
 		var currentDefinition = this.params._definition;
-		console.log(currentDefinition)
-		return Definitions.findOne({ Name: currentDefinition });
+		currentDefinition = currentDefinition.replace(" ","_")
+		currentDefinition = currentDefinition.toLowerCase()
+		console.log(currentDefinition);
+		return Definitions.findOne({ Tag: currentDefinition });
 	} 
 });
 });
@@ -74,3 +77,5 @@ Router.onBeforeAction(function() {
   GoogleMaps.load();
   this.next();
 });
+
+
