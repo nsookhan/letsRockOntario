@@ -18,31 +18,32 @@ Template.slider.helpers({
 
  
  
+//sitePictures/C1a.png
 
 	image: function(){
 			if (csite.ImageN == 1) {
-				$('<div class="item"><img src="'+csite.Image1+'"></div>').appendTo('.carousel-inner');
+				$('<div class="item"><img src="sitePictures/'+csite.siteID+'a.png"></div>').appendTo('.carousel-inner');
 				$('<li data-target="#carousel" data-slide-to="0"></li>').appendTo('.carousel-indicators');
 				console.log("create1");
 			} else if (csite.ImageN==2) {
-				$('<div class="item"><img src="'+csite.Image1+'"></div>').appendTo('.carousel-inner');
-				$('<div class="item"><img src="'+csite.Image2+'"></div>').appendTo('.carousel-inner');
+				$('<div class="item"><img src="sitePictures/'+csite.siteID+'a.png"></div>').appendTo('.carousel-inner');
+				$('<div class="item"><img src="sitePictures/'+csite.siteID+'b.png"></div>').appendTo('.carousel-inner');
 				$('<li data-target="#carousel" data-slide-to="0"></li>').appendTo('.carousel-indicators');
 				$('<li data-target="#carousel" data-slide-to="1"></li>').appendTo('.carousel-indicators');
 				console.log("create2");
 			} else if (csite.ImageN==3) {
-				$('<div class="item"><img src="'+csite.Image1+'"></div>').appendTo('.carousel-inner');
-				$('<div class="item"><img src="'+csite.Image2+'"></div>').appendTo('.carousel-inner');
-				$('<div class="item"><img src="'+csite.Image3+'"></div>').appendTo('.carousel-inner');
+				$('<div class="item"><img src="sitePictures/'+csite.siteID+'a.png"></div>').appendTo('.carousel-inner');
+				$('<div class="item"><img src="sitePictures/'+csite.siteID+'b.png"></div>').appendTo('.carousel-inner');
+				$('<div class="item"><img src="sitePictures/'+csite.siteID+'c.png"></div>').appendTo('.carousel-inner');
 				$('<li data-target="#carousel" data-slide-to="0"></li>').appendTo('.carousel-indicators');
 				$('<li data-target="#carousel" data-slide-to="1"></li>').appendTo('.carousel-indicators');
 				$('<li data-target="#carousel" data-slide-to="2"></li>').appendTo('.carousel-indicators');
 				console.log("create3");
 			} else if (csite.ImageN==4) {
-				$('<div class="item"><img src="'+csite.Image1+'"></div>').appendTo('.carousel-inner');
-				$('<div class="item"><img src="'+csite.Image2+'"></div>').appendTo('.carousel-inner');
-				$('<div class="item"><img src="'+csite.Image3+'"></div>').appendTo('.carousel-inner');
-				$('<div class="item"><img src="'+csite.Image4+'"></div>').appendTo('.carousel-inner');
+				$('<div class="item"><img src="sitePictures/'+csite.siteID+'a.png"></div>').appendTo('.carousel-inner');
+				$('<div class="item"><img src="sitePictures/'+csite.siteID+'b.png"></div>').appendTo('.carousel-inner');
+				$('<div class="item"><img src="sitePictures/'+csite.siteID+'c.png"></div>').appendTo('.carousel-inner');
+				$('<div class="item"><img src="sitePictures/'+csite.siteID+'d.png"></div>').appendTo('.carousel-inner');
 				$('<li data-target="#carousel" data-slide-to="0"></li>').appendTo('.carousel-indicators');
 				$('<li data-target="#carousel" data-slide-to="1"></li>').appendTo('.carousel-indicators');
 				$('<li data-target="#carousel" data-slide-to="2"></li>').appendTo('.carousel-indicators');
