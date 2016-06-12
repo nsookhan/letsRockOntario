@@ -1,0 +1,36 @@
+<template name="def_list">
+	<div class="col-xs-12">
+		<section class="list_view">
+
+		<ul>
+			<h3>Filter By:</h3>
+
+			<!-- Single button for category -->
+			<div class="btn-group category">
+  			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    		Category 
+    		<span class="caret"></span>
+  			</button>
+  			<ul class="dropdown-menu">
+    			<li><a class="rm" href="#">Rocks and Minerals</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a class="d" href="#">Definitions</a></li>
+    			<li role="separator" class="divider"></li>
+          <li><a class="all" href="#">All</a></li>
+  			</ul>
+			</div>
+
+      <button type="button" class="btn btn-primary reset">Reset</button>
+
+		</ul>
+
+    {{#each definitions}}
+      <a href="/def/{{Tag}}"><div><h4>{{Name}}</h4></div></a> 
+      <div>{{{hlinkDesc}}}</div> <hr />
+    {{/each}}
+
+
+
+		</section>
+	</div>
+</template>

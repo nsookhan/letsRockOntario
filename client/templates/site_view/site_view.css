@@ -1,16 +1,42 @@
 .SiteViewMapContainer{
   display: block;
   max-width: 100%;
-  height: 100vh;
+  height: 90vh;
 }
 
 .SiteViewInfoContainer{
-	padding: 1em;
-
-
+	padding: 0.5em;
+	position:relative;
+	max-width: 100%;
+  	height: 90vh;
 }
 
 .scroll {
 	overflow-y:auto;
-	height:270px;
+	height:30vh;
+	width:100%;
+}
+
+
+.modal-dialog{
+	width:80vh;
+}
+
+.modal-content > .modal-body > .imgHolder {
+	padding: 0.5em;
+}
+
+.modal-content > .modal-body > p {
+	max-width:auto;
+	display: block;
+}
+
+
+.modal-content > .modal-body > .imgHolder > img {
+    max-height:35vh;
+    min-height:35vh;
+    max-width: auto;
+    object-fit: contain;
+    margin:0 auto;
+    display:block;
 }

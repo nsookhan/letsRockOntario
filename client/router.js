@@ -26,11 +26,12 @@ Router.map(function(){
 
 // About page router
 Router.route('/about', function(){
-	this.render('about');
-});
+	this.render('about')
+	});
 
 
-// About page router
+
+// site list page router
 Router.route('/site_list', function(){
 	this.render('site_list',{
 		data: function(){
@@ -40,36 +41,42 @@ Router.route('/site_list', function(){
 });
 
 
-// Dynamic Router for each site.
-Router.route('/:_site',function(){
+// definition list page router
+Router.route('/definitions_list', function(){
+	this.render('def_list',{
+		data: function(){
+			return Definitions.find();
+		}
+	});
+});
 
-	
+
+// Dynamic Router for each site/definition.
+Router.route('/:_current',function(){
+
+	var current = this.params._current; 
+	console.log(current);
+
 	this.render('site_view',{
 		data: function(){
-		var currentSite = this.params._site;
-		console.log(currentSite)
-		return Sites.findOne({ siteID: currentSite });	
+		return Sites.findOne({ siteID: current });	
 		}
-		
 	});
-}
+});
 
-);
+//
+Router.route('/def/:_current',function(){
 
+	var current = this.params._current; 
+	console.log(current);
 
-// Dynamic Router for each definition
-
-Router.route('/def/:_definition',function(){
-console.log(this.params_definition);
 	this.render('def_view',{
 		data: function(){
-		var currentDefinition = this.params._definition;
-		currentDefinition = currentDefinition.replace(" ","_")
-		currentDefinition = currentDefinition.toLowerCase()
-		console.log(currentDefinition);
-		return Definitions.findOne({ Tag: currentDefinition });
-	} 
-});
+		current = current.replace(" ","_");
+		current = current.toLowerCase();
+		return Definitions.findOne({ Tag: current });
+		}
+	});
 });
 
 //TODO: figure out how to load google maps only for only Main view and site_view
@@ -77,5 +84,3 @@ Router.onBeforeAction(function() {
   GoogleMaps.load();
   this.next();
 });
-
-

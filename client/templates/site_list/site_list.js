@@ -1,4 +1,5 @@
 Meteor.subscribe("sites");
+Meteor.subscribe("definitions");
 
 Template.site_list.rendered = function() {
   Session.set("Category","all");
@@ -107,7 +108,6 @@ Template.site_list.helpers({
     },
 
     "click .reset": function () {
-      console.log('reset clicked');  
     }
 
  });

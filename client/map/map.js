@@ -51,7 +51,7 @@ Template.map.onCreated(function() {
         });
 
       var latlng = new google.maps.LatLng(info.Lat,info.Lon);
-
+      //add marker, site category specific 
       if(info.Categ == '1') {
         var image = {
             url:"/assets/markers/fr.png",
@@ -123,34 +123,3 @@ Template.map.onCreated(function() {
 
   });
 });
-
-
-
-/*
-      if(info.Categ == '1') {
-        stkClr = "#94DC6D";
-      } else if(info.Categ == '2') {
-        stkClr = "#DCD26D";
-      } else if(info.Categ == '3') {
-        stkClr = "#DC6D6D";
-      } else if (info.Categ == '4') {
-        stkClr = "#72DC6D";
-      } else if(info.Categ == '5') {
-        stkClr = "#BDCBD1";
-      } else if(info.Categ == '6') {
-        stkClr = "#96C6E1";
-      }; 
-
-      var marker = new google.maps.Marker({
-                    position: latlng,
-                     icon: {
-                      path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-                      scale: 3.2,
-                      fillOpacity: 1,
-                      fillColor: stkClr,
-                      strokeWeight: 1,
-                    },
-                    map: map.instance
-                    });
-
-*/

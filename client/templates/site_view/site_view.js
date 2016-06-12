@@ -1,8 +1,12 @@
-
 // Subscribe to server published collection
 Meteor.subscribe("sites");
 Meteor.subscribe("definitions");
 
+
+//uppercase first letter of string 
+String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
 
 Template.site_view.onCreated(function() {
 
@@ -18,9 +22,8 @@ Template.site_view.onCreated(function() {
     self.autorun(function(){
 
 
-       var id = Router.current().params._site;
+       var id = Router.current().params._current;
     // // gets the url :_site
-      
        var site_doc = Sites.findOne({siteID: id});
 
       if(! site_doc){
@@ -216,7 +219,7 @@ Template.site_view.helpers({
 
 site_view_map_options: function() {
 
-    var id = Router.current().params._site;
+    var id = Router.current().params._current;
     // // gets the url :_site
       
     var site_doc = Sites.findOne({siteID: id});
@@ -235,51 +238,74 @@ site_view_map_options: function() {
 
     }
    
+  },
+  //Test of equality helper for if handlebars
+  equals: function(a,b) {
+    if (a == b) {
+      return (true);
+    } else {
+      return (false);
+    }
   }
-
 });
 
 
+Template.site_view.events({
+  //modal
+  "click .def": function () {
+  if (typeof mdef == 'undefined') {
+    // if modal def does not exist, create
+    $('<div class="modal fade" id="modal" role="dialog"></div>').appendTo('.container-fluid');
+    $('<div class="modal-dialog"></div>').appendTo('#modal');
+    $('<div class="modal-content"></div>').appendTo('.modal-dialog');
+    $('<div class="modal-header"></div>').appendTo('.modal-content');
+    $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>').appendTo('.modal-header');
+    $('<h4></h4>').appendTo('.modal-header');
+    $('<div class="modal-body"></div>').appendTo('.modal-content');
+    $('<p></p>').appendTo('.modal-body');
+    // add clicked site description to modal
+    mdef =  event.target.innerHTML.capitalizeFirstLetter();
+      mdef = Definitions.findOne({Name:mdef});
+      $('<p>'+mdef.modalDesc+'</p>').appendTo('.modal-body');
+      if(mdef.Occ != ""){
+        $('<h3>See Sites:</h3>').appendTo('.modal-body');
+        $('<p>'+mdef.Occ+'</p>').appendTo('.modal-body');
+      };
+      $('<h4>'+mdef.Name+'</h4>').appendTo('.modal-header');
+      if (mdef.ImageN == 1) {
+        $('<div class="imgHolder"><img src="/rockPictures/'+ mdef.defID + 'a.png"></div>').appendTo('.modal-body');
+      };
+      return (mdef);  
+  } else {
+    //if modal def exists, destroy + create
+    $('#modal').remove();
+    $('.modal').remove();
+    $('.fade').remove();
+    $('<div class="modal fade" id="modal" role="dialog"></div>').appendTo('.container-fluid');
+    $('<div class="modal-dialog"></div>').appendTo('#modal');
+    $('<div class="modal-content"></div>').appendTo('.modal-dialog');
+    $('<div class="modal-header"></div>').appendTo('.modal-content');
+    $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>').appendTo('.modal-header');
+    $('<h4></h4>').appendTo('.modal-header');
+    $('<div class="modal-body"></div>').appendTo('.modal-content');
+    $('<p></p>').appendTo('.modal-body');
+    // add clicked site description to modal
+    mdef =  event.target.innerHTML.capitalizeFirstLetter();
+    mdef = Definitions.findOne({Name:mdef});
+    $('<p>'+mdef.modalDesc+'</p>').appendTo('.modal-body');
+    $('<h4>'+mdef.Name+'</h4>').appendTo('.modal-header');
+    if(mdef.Occ != ""){
+        $('<h3>See Sites:</h3>').appendTo('.modal-body');
+        $('<p>'+mdef.Occ+'</p>').appendTo('.modal-body');
+      };   
+    if (mdef.ImageN == 1) {
+        $('<div class="imgHolder"><img src="/rockPictures/'+ mdef.defID + 'a.png"></div>').appendTo('.modal-body');
+      };
+    return (mdef);  
+    }
+  },
+  "click .test":function() {
+    console.log("clicked")
+  }
 
-
-
-/*
-  // Adding Hover listener for Tooltip (InfoWindow)
-  marker.addListener('mouseover',function(){
-    infowindow.open(map.instance, marker);
-  });
-
-          marker.addListener('mouseout',function(){
-            infowindow.close();
-          });
-
-          // Double click handler to go to the site.
-          marker.addListener('dblclick',function(){
-            Router.go('/'+id);
-          }); 
-
-          var infowindow = new google.maps.InfoWindow({ 
-            content: 
-            ['<span class="InfoWindow">',
-            '<h3>' + id.toUpperCase() + '</h3>',
-            '<span>' + site_doc.SiteName + '</span>',
-            '</span>'].join('')
-        });
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
