@@ -1,6 +1,3 @@
-Meteor.subscribe("sites");
-Meteor.subscribe("definitions");
-
 Template.def_list.rendered = function() {
   Session.set("Category","all");
   console.log("Category all");

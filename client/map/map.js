@@ -1,7 +1,3 @@
-//Sites = new Mongo.Collection("sites");
-
-Meteor.subscribe("sites");
-
 var marker = {};
 
 // light map style
@@ -16,11 +12,10 @@ Template.map.helpers({
       return {
         center: new google.maps.LatLng(43.746174, -79.386412),
         zoom: 7,
-        disableDefaultUI: true,
-        styles: styles
+        disableDefaultUI: false,
+        styles: styles,
+        gestureHandling: 'greedy'
       };
-
-
     }
   }
 
@@ -33,21 +28,25 @@ Template.map.onCreated(function() {
 
   GoogleMaps.ready('main_map', function(map) {
 
+
    
     console.log('Main Map ready');
 
-
-    // Adds a InfoWindow
+        // Adds a InfoWindow
     Sites.find({ SubTitle: {$ne: "UTSC Rock Walk"}}).forEach(function(info){
 
       var id = info.siteID;
-
+      var mapsLink = [' href="https://maps.google.com/?q=',info.Lat,',',info.Lon,'"'].join('');
+      
       var infowindow = new google.maps.InfoWindow({ 
           content: 
-            ['<span class="InfoWindow">',
-            '<h3>' + id.toUpperCase() + '</h3>',
-            '<span>' + info.SiteName + '</span>',
-            '</span>'].join('')
+            [
+              '<span class="InfoWindow">',
+              '<h4>' + id.toUpperCase() + '</h4>',
+              '<h5>' + info.SiteName + '</h5>',
+              ['<a',mapsLink,'>'].join('') + "google maps" + '</a>',
+              '</span>'
+            ].join('')
         });
 
       var latlng = new google.maps.LatLng(info.Lat,info.Lon);
@@ -94,8 +93,7 @@ Template.map.onCreated(function() {
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(14, 45)
           };        
-      }; 
-
+      };
       var marker = new google.maps.Marker({
                     position: latlng,
                     icon: image,
@@ -109,9 +107,9 @@ Template.map.onCreated(function() {
       });
 
       marker.addListener('mouseout',function(){
-        infowindow.close();
+        infowindow.close(map.instance, marker);
       });
-
+      
       // Double click handler to go to the site.
       marker.addListener('dblclick',function(){
          Router.go('/'+id);
@@ -119,6 +117,9 @@ Template.map.onCreated(function() {
 
 
     });
+
+
+
 
 
   });

@@ -2,13 +2,14 @@
 
 <div class="container-fluid">
 
-  <div class="col-md-8 col-xs-12">
-    <div class="SiteViewMapContainer">
-      {{> googleMap name="site_view_map" options= site_view_map_options}}
+    <div class="col-md-7 col-xs-6">
+      <div class="SiteViewMapContainer">
+        {{> googleMap name="site_view_map" options= site_view_map_options}}
+      </div>
     </div>
-  </div>
   
-  <div class="col-md-4">
+
+  <div class="col-md-5 col-xs-6">
     <div class="SiteViewInfoContainer">
       <h4> {{siteID}}:{{SiteName}}</h4>
       <div class="scroll">
@@ -34,7 +35,7 @@
         {{else}}
         <!--Carousel 2 item-->
           {{#if equals ImageN 2}}
-            <div id="carousel" class="carousel slide container" style="width: auto; margin: 0 auto">
+            <div id="carousel" class="carousel slide container">
               <div class="carousel-inner">
                 <div class="item active" style="background: url(back.png) no-repeat left center; background-size: cover;"><a data-toggle="modal" href="#myModal1"> <img src="sitePictures/{{siteID}}a.png"> </a></div>
                 <div class="item" style="background: url(back.png) no-repeat left center; background-size: cover;"><a data-toggle="modal" href="#myModal2"> <img src="sitePictures/{{siteID}}b.png"> </a></div>
@@ -47,8 +48,8 @@
               </ol>
             </div>
         <!--Modal 2 item-->
-        <div class="modal fade" id="myModal1" role="dialog"><div class="modal-dialog"><div class="modal-content"><img src="sitePictures/{{siteID}}a.png"></div></div></div>
-        <div class="modal fade" id="myModal2" role="dialog"><div class="modal-dialog"><div class="modal-content"><img src="sitePictures/{{siteID}}b.png"></div></div></div>
+        <div class="modal fade" id="myModal1" role="dialog"><div class="modal-dialog"><div class="modal-content"><img class="responsive" src="sitePictures/{{siteID}}a.png"></div></div></div>
+        <div class="modal fade" id="myModal2" role="dialog"><div class="modal-dialog"><div class="modal-content"><img class="responsive" src="sitePictures/{{siteID}}b.png"></div></div></div>
           {{else}}
         <!--Carousel 3 item-->
           {{#if equals ImageN 3}}

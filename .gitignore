@@ -2,4 +2,5 @@
 .meteor/meteorite
 *.csv
 /public
+/data
 .DS_Store

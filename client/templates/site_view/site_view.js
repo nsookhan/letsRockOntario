@@ -1,8 +1,3 @@
-// Subscribe to server published collection
-Meteor.subscribe("sites");
-Meteor.subscribe("definitions");
-
-
 //uppercase first letter of string 
 String.prototype.capitalizeFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -25,6 +20,7 @@ Template.site_view.onCreated(function() {
        var id = Router.current().params._current;
     // // gets the url :_site
        var site_doc = Sites.findOne({siteID: id});
+
 
       if(! site_doc){
         console.log('something went wrong with mongo D:');

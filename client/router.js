@@ -5,11 +5,18 @@ Router.configure({
   // sets the main template as Layout with the nav bar
 });
 
-// Home Page router (with Main map)
-Router.route('/', function(){
-	name:'home',
-  this.render('home');
+// Home Page router (with Main map) load about page until subscriptions loaded
+Router.route('/', function () {
+  this.subscribe('sites', this.params._id).wait();
+
+  if (this.ready()) {
+    this.render('home');
+  } else {
+    this.render('loading');
+  }
 });
+
+
 
 
 // image

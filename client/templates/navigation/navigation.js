@@ -1,12 +1,13 @@
-Sites = new Mongo.Collection("sites");
-Definitions = new Mongo.Collection("definitions");
-
+//Sites = new Mongo.Collection("sites");
 Meteor.subscribe("sites");
 Meteor.subscribe("definitions");
 
+Sites = new Mongo.Collection("sites");
+Definitions = new Mongo.Collection("definitions");
+
 
 //Easy Search
-Sites.initEasySearch(['SiteName', 'SiteID']);
+Sites.initEasySearch(['siteID','SiteName']);
 
 
 Template.navigation.helpers({
