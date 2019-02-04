@@ -1,3 +1,4 @@
+/* info container */ 
 .SiteViewMapContainer{
   display:block;
   max-width: 100%;
@@ -17,7 +18,32 @@
 	width:100%;
 }
 
+/* modal */ 
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
 
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.responsive {
+    width:100%;
+    height:auto;
+}
+
+/* modal definitions */
 .modal-content > .modal-body > p {
 	max-width:auto;
 	display: block;
@@ -38,18 +64,14 @@
     display:block;
 }
 
-.responsive {
-    width:100%;
-    height:auto;
-}
 
+/* carousel */ 
 .carousel {
 	margin-top: 5%;
 	width:100%; 
 	height:auto;
 	position:relative;	
 }
-
 
 .carousel-inner img {
 	max-width:auto;
