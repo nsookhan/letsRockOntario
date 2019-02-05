@@ -91,4 +91,3 @@ Router.onBeforeAction(function() {
   GoogleMaps.load();
   this.next();
 });
-

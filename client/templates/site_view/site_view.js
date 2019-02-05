@@ -299,9 +299,5 @@ Template.site_view.events({
       };
     return (mdef);  
     }
-  },
-  "click .test":function() {
-    console.log("clicked")
   }
-
 });

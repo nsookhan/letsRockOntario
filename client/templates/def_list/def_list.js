@@ -43,15 +43,9 @@ Template.def_list.events({
 	},
 	"click .reset": function () {
 		Session.set("Category","all");
-	}
+	},
 
-});
-
-
-
-
-Template.def_list.events({
-  //modal
+   //modal
   "click .def": function () {
   if (typeof mdef == 'undefined') {
     // if modal def does not exist, create
@@ -103,9 +97,5 @@ Template.def_list.events({
       };
     return (mdef);  
     }
-  },
-  "click .test":function() {
-    console.log("clicked")
   }
-
 });
