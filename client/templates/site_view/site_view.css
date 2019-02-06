@@ -56,12 +56,8 @@
 }
 
 .modal-content > .modal-body > .imgHolder > img {
-    max-height:35vh;
-    min-height:35vh;
-    max-width: auto;
-    object-fit: contain;
-    margin:0 auto;
-    display:block;
+    width:100%;
+    height:auto;
 }
 
 
